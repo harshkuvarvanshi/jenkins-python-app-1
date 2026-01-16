@@ -8,9 +8,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh '''
-                python3 -m pip install --user -r requirements.txt
-                '''
+                sh 'python3 -m pip install --user -r requirements.txt'
             }
         }
 
@@ -19,7 +17,7 @@ pipeline {
                 sh '''
                 pkill -f app.py || true
                 nohup python3 app.py > app.log 2>&1 &
-                sleep 5
+                sleep 10
                 '''
             }
         }
