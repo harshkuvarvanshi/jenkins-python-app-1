@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "🚀 Jenkins AUTO pipeline is working-12345677!"
+    return "🚀 Jenkins AUTO pipeline is working!"
 
 
 if __name__ == "__main__":
