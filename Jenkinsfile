@@ -2,15 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Code checked out from GitHub'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
-        stage('Run Python App') {
+        stage('Deploy App') {
             steps {
-                sh 'python3 app.py'
+                sh '''
+                pkill -f app.py || true
+                nohup python3 app.py > app.log 2>&1 &
+                '''
             }
         }
     }

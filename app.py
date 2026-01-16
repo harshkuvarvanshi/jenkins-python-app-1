@@ -1,3 +1,10 @@
-print("Hello from GitHub 🚀")
-print("Jenkins pulled this code automatically")
-print("🔥 Auto triggered Jenkins build")
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "🚀 Deployed automatically using Jenkins CI/CD!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
